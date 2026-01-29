@@ -1,12 +1,15 @@
-import express from 'express';
+import express from "express";
+import subjectsRouter from "./routes/subjects.js";
 
 const app = express();
 const PORT = 8000;
 
 app.use(express.json());
 
-app.get('/', (req, res) => {
-  res.json({ message: 'Welcome to the classroom backend' });
+app.use("/api/subjects", subjectsRouter);
+
+app.get("/", (req, res) => {
+  res.json({ message: "Welcome to the classroom backend" });
 });
 
 app.listen(PORT, () => {
